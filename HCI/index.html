@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSIT Student Hub - NEDUET</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ===== TOP ANNOUNCEMENT BAR ===== -->
+<div class="announce-bar">
+  <div class="marquee-wrap">
+    <span class="marquee-text">
+      &#128226; ICONICS '26 Registration Open &nbsp;|&nbsp; Fall 2026 Timetable Published &nbsp;|&nbsp; MS &amp; PhD Admissions Open — Apply by Nov 15 &nbsp;|&nbsp; Semester Examinations begin December 10, 2026 &nbsp;|&nbsp; New AI &amp; Data Science Lab Inaugurated &nbsp;|&nbsp; Google Summer of Code 2027 Preparation Workshop — Oct 30 &nbsp;|&nbsp;
+      &#128226; ICONICS '26 Registration Open &nbsp;|&nbsp; Fall 2026 Timetable Published &nbsp;|&nbsp; MS &amp; PhD Admissions Open — Apply by Nov 15 &nbsp;|&nbsp; Semester Examinations begin December 10, 2026
+    </span>
+  </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Logo -->
+    <a href="#" class="nav-logo">
+      <!--
+        YOUR LOGO IMAGE:
+        1. Copy your logo/photo into  c:\Users\HP\app-dev\HCI\
+        2. Rename it  logo.png  (or change 'logo.png' below to your filename)
+      -->
+      <div class="logo-badge logo-img-wrap">
+        <img
+          src="logo.png"
+          alt="CSIT Logo"
+          class="logo-img"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <span class="logo-fallback" style="display:none;">CSIT</span>
+      </div>
+      <div class="logo-text">
+        <span class="nav-title">CSIT Student Hub</span>
+        <span class="nav-subtitle">Department of CSIT &middot; NEDUET</span>
+      </div>
+    </a>
+
+    <!-- Desktop Menu -->
+    <nav class="nav-menu" id="navMenu">
+      <div class="nav-item">
+        <a href="#home" class="nav-link active">Home</a>
+      </div>
+
+      <div class="nav-item has-dropdown">
+        <a href="#" class="nav-link dropdown-trigger">Students <span class="chevron">&#9660;</span></a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item">Undergraduate Resources</a>
+          <a href="#" class="dropdown-item">Masters Resources</a>
+          <a href="#" class="dropdown-item">PhD Resources</a>
+          <a href="#" class="dropdown-item">Student Affairs</a>
+        </div>
+      </div>
+
+      <div class="nav-item has-dropdown">
+        <a href="#academic-resources" class="nav-link dropdown-trigger">Academic Resources <span class="chevron">&#9660;</span></a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item" onclick="openTimetableModal()">Timetable</a>
+          <a href="#" class="dropdown-item">Examination Schedule</a>
+          <a href="#" class="dropdown-item">Rooms &amp; Labs</a>
+          <a href="#" class="dropdown-item">Attendance</a>
+          <a href="#" class="dropdown-item">Academic Calendar</a>
+          <a href="#" class="dropdown-item">OBE Framework</a>
+        </div>
+      </div>
+
+      <div class="nav-item has-dropdown">
+        <a href="#faculty" class="nav-link dropdown-trigger">Faculty <span class="chevron">&#9660;</span></a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item">Faculty Members</a>
+          <a href="#" class="dropdown-item">Departmental Committees</a>
+          <a href="#" class="dropdown-item">Faculty Finder</a>
+          <a href="#" class="dropdown-item">HEC Approved Supervisors</a>
+        </div>
+      </div>
+
+      <div class="nav-item has-dropdown">
+        <a href="#programs" class="nav-link dropdown-trigger">Programs <span class="chevron">&#9660;</span></a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item">BS Computer Science</a>
+          <a href="#" class="dropdown-item">BS Software Engineering</a>
+          <a href="#" class="dropdown-item">BS Artificial Intelligence</a>
+          <a href="#" class="dropdown-item">BS Cyber Security</a>
+          <a href="#" class="dropdown-item">MS Programs</a>
+          <a href="#" class="dropdown-item">PhD Programs</a>
+        </div>
+      </div>
+
+      <div class="nav-item has-dropdown">
+        <a href="#announcements" class="nav-link dropdown-trigger">Announcements <span class="chevron">&#9660;</span></a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item">Academic Notices</a>
+          <a href="#" class="dropdown-item">Events &amp; Activities</a>
+          <a href="#" class="dropdown-item">Opportunities</a>
+          <a href="#" class="dropdown-item">Research Updates</a>
+          <a href="#" class="dropdown-item">Department News</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#" class="nav-link">Events</a>
+      </div>
+
+      <div class="nav-item has-dropdown">
+        <a href="#about" class="nav-link dropdown-trigger">About CSIT <span class="chevron">&#9660;</span></a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item">Vision &amp; Mission</a>
+          <a href="#" class="dropdown-item">Chairman's Message</a>
+          <a href="#" class="dropdown-item">Statistics &amp; Milestones</a>
+          <a href="#" class="dropdown-item">Accreditations</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Right Controls -->
+    <div class="nav-controls">
+      <button class="search-btn" id="searchToggle" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-bar-wrap" id="searchBar">
+    <div class="nav-container">
+      <input type="text" class="search-input" placeholder="Search faculty, resources, announcements..." id="globalSearch"/>
+      <button class="search-close" id="searchClose">&#10005;</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO SECTION ===== -->
+<!--
+  ╔══════════════════════════════════════════════════════╗
+  ║  HOW TO SET YOUR OWN HERO BACKGROUND IMAGE:         ║
+  ║  1. Copy your image into:  c:\Users\HP\app-dev\HCI\ ║
+  ║     (rename it to:  hero-bg.jpg  — or any name)     ║
+  ║  2. In style.css find  .hero { }  and change:       ║
+  ║     background-image: url('YOUR-IMAGE-NAME.jpg');   ║
+  ║  The dark overlay is automatic — image shows through║
+  ╚══════════════════════════════════════════════════════╝
+-->
+<section class="hero" id="home">
+  <div class="hero-overlay"></div>
+  <div class="hero-img-overlay"></div>
+  <div class="container hero-inner">
+
+    <!-- LEFT: Welcome text + small stats grid -->
+    <div class="hero-left">
+      <span class="hero-badge">NED University of Engineering &amp; Technology</span>
+      <h1 class="hero-title">Welcome to<br><span class="highlight">CSIT Hub</span></h1>
+      <div class="hero-actions">
+        <a href="#academic-resources" class="btn btn-primary btn-sm">Explore Resources</a>
+        <a href="#" onclick="openTimetableModal()" class="btn btn-outline btn-sm">View Timetable</a>
+      </div>
+
+      <!-- Stats grid moved to left, 40% size -->
+      <div class="hero-stats-grid">
+        <div class="hsg-card">
+          <div class="hsg-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="hsg-num">12</div>
+          <div class="hsg-label">Timetables</div>
+        </div>
+        <div class="hsg-card">
+          <div class="hsg-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="hsg-num">34</div>
+          <div class="hsg-label">Faculty</div>
+        </div>
+        <div class="hsg-card">
+          <div class="hsg-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <div class="hsg-num">200+</div>
+          <div class="hsg-label">Publications</div>
+        </div>
+        <div class="hsg-card">
+          <div class="hsg-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="hsg-num">1k+</div>
+          <div class="hsg-label">Students</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: empty — lets the bg image breathe -->
+    <div class="hero-right"></div>
+
+  </div>
+
+  <!-- Hero bottom strip -->
+  <div class="hero-bottom-strip">
+    <div class="hqs-item"><span class="hqs-num">5</span><span class="hqs-label">Programmes</span></div>
+    <div class="hqs-divider"></div>
+    <div class="hqs-item"><span class="hqs-num">34</span><span class="hqs-label">Faculty Members</span></div>
+    <div class="hqs-divider"></div>
+    <div class="hqs-item"><span class="hqs-num">1k+</span><span class="hqs-label">Students</span></div>
+    <div class="hqs-divider"></div>
+    <div class="hqs-item"><span class="hqs-num">10k+</span><span class="hqs-label">Alumni</span></div>
+  </div>
+</section>
+
+<!-- ===== QUICK ACCESS SECTION ===== -->
+<section class="quick-access" id="quick-access">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Student Tools</span>
+      <h2>Quick Access</h2>
+      <p>Jump directly to the resources you need most</p>
+    </div>
+    <div class="qa-grid">
+
+      <a href="#" onclick="openTimetableModal()" class="qa-card">
+        <div class="qa-icon-pane">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="qa-text-pane">
+          <span class="qa-title">Timetable</span>
+          <span class="qa-sub">Fall 2026 Schedule</span>
+        </div>
+      </a>
+
+      <a href="#" class="qa-card">
+        <div class="qa-icon-pane">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+        </div>
+        <div class="qa-text-pane">
+          <span class="qa-title">Exam Schedule</span>
+          <span class="qa-sub">Date Sheet &amp; Venues</span>
+        </div>
+      </a>
+
+      <a href="#" class="qa-card">
+        <div class="qa-icon-pane">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+        </div>
+        <div class="qa-text-pane">
+          <span class="qa-title">Room Allocation</span>
+          <span class="qa-sub">Classrooms &amp; Labs</span>
+        </div>
+      </a>
+
+      <a href="#" class="qa-card">
+        <div class="qa-icon-pane">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+        </div>
+        <div class="qa-text-pane">
+          <span class="qa-title">Attendance</span>
+          <span class="qa-sub">Track Your Record</span>
+        </div>
+      </a>
+
+      <a href="#faculty" class="qa-card">
+        <div class="qa-icon-pane">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="qa-text-pane">
+          <span class="qa-title">Faculty Finder</span>
+          <span class="qa-sub">Find Your Supervisor</span>
+        </div>
+      </a>
+
+      <a href="#announcements" class="qa-card">
+        <div class="qa-icon-pane">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </div>
+        <div class="qa-text-pane">
+          <span class="qa-title">Announcements</span>
+          <span class="qa-sub">Latest Updates</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATISTICS BAR ===== -->
+<section class="stats-bar">
+  <div class="container stats-grid">
+
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      </div>
+      <div class="stat-num" data-target="5">0</div>
+      <div class="stat-label">Degree Programmes</div>
+    </div>
+
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="stat-num" data-target="34">0</div>
+      <div class="stat-label">Full-Time Faculty</div>
+    </div>
+
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <div class="stat-num" data-target="1000" data-suffix="+">0</div>
+      <div class="stat-label">Active Students</div>
+    </div>
+
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+      </div>
+      <div class="stat-num" data-target="10000" data-suffix="+">0</div>
+      <div class="stat-label">Alumni Worldwide</div>
+    </div>
+
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
+      </div>
+      <div class="stat-num" data-target="12">0</div>
+      <div class="stat-label">Research Labs</div>
+    </div>
+
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+      </div>
+      <div class="stat-num" data-target="200" data-suffix="+">0</div>
+      <div class="stat-label">Publications</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== ACADEMIC RESOURCES HUB ===== -->
+<section class="academic-hub" id="academic-resources">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Resources</span>
+      <h2>Academic Resources Hub</h2>
+      <p>Everything you need for the current semester, organized and accessible</p>
+    </div>
+
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab(this,'ug-panel')">&#127979; Undergraduate</button>
+      <button class="tab-btn" onclick="switchTab(this,'ms-panel')">&#127891; Masters</button>
+    </div>
+
+    <!-- Undergraduate Panel -->
+    <div class="tab-panel active" id="ug-panel">
+
+      <div class="accordion-item" id="timetable">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span class="acc-icon">&#128197;</span>
+          <span class="acc-title">Timetable Fall 2026</span>
+          <span class="acc-chevron">&#9660;</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-desc">Current semester class schedules for all undergraduate batches across all sections.</p>
+          <div class="acc-links">
+            <a href="#" class="acc-link-btn primary-link" onclick="openTimetableModal()"><span>&#128197;</span> Fall 2026 UG Timetable <span class="link-badge">View PDF</span></a>
+            <a href="#" class="acc-link-btn"><span>&#128196;</span> Spring 2026 Archive</a>
+            <a href="#" class="acc-link-btn"><span>&#128172;</span> Timetable Feedback Form</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" id="exams">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span class="acc-icon">&#128221;</span>
+          <span class="acc-title">Examination Schedule</span>
+          <span class="acc-chevron">&#9660;</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-desc">Final and mid-term examination date sheets, venues, and seating plans for the current semester.</p>
+          <div class="acc-links">
+            <a href="#" class="acc-link-btn primary-link"><span>&#128196;</span> Final Exam Date Sheet <span class="link-badge">Download</span></a>
+            <a href="#" class="acc-link-btn"><span>&#128197;</span> Mid-Term Schedule</a>
+            <a href="#" class="acc-link-btn"><span>&#128203;</span> Practical Exam Schedule</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" id="rooms">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span class="acc-icon">&#127963;</span>
+          <span class="acc-title">Rooms &amp; Lab Allocation</span>
+          <span class="acc-chevron">&#9660;</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-desc">View room and laboratory allocations for lectures, practicals, and examinations.</p>
+          <div class="acc-links">
+            <a href="#" class="acc-link-btn primary-link"><span>&#127968;</span> Classroom Allocation &ndash; Fall 2026 <span class="link-badge">View</span></a>
+            <a href="#" class="acc-link-btn"><span>&#128187;</span> Lab Allocation &ndash; CS Labs</a>
+            <a href="#" class="acc-link-btn"><span>&#128300;</span> Research Lab Directory</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" id="attendance">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span class="acc-icon">&#9989;</span>
+          <span class="acc-title">Attendance Policy &amp; Records</span>
+          <span class="acc-chevron">&#9660;</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-desc">University attendance policy requires 75% minimum attendance per course to be eligible for examinations.</p>
+          <div class="acc-links">
+            <a href="#" class="acc-link-btn primary-link"><span>&#128202;</span> Check My Attendance <span class="link-badge">Login</span></a>
+            <a href="#" class="acc-link-btn"><span>&#128196;</span> Attendance Policy Document</a>
+            <a href="#" class="acc-link-btn"><span>&#9888;&#65039;</span> Shortage of Attendance Form</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" id="calendar">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span class="acc-icon">&#128197;</span>
+          <span class="acc-title">Academic Calendar 2026-27</span>
+          <span class="acc-chevron">&#9660;</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-desc">Full academic year schedule including semester dates, holidays, and key academic milestones.</p>
+          <div class="acc-links">
+            <a href="#" class="acc-link-btn primary-link"><span>&#128196;</span> Full Academic Calendar <span class="link-badge">Download</span></a>
+            <a href="#" class="acc-link-btn"><span>&#128203;</span> Important Dates at a Glance</a>
+            <a href="#" class="acc-link-btn"><span>&#127965;</span> Holiday Schedule</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" id="obe">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span class="acc-icon">&#127919;</span>
+          <span class="acc-title">OBE Framework</span>
+          <span class="acc-chevron">&#9660;</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-desc">Outcome-Based Education framework documents including program learning outcomes and assessment criteria.</p>
+          <div class="acc-links">
+            <a href="#" class="acc-link-btn primary-link"><span>&#128196;</span> OBE Policy Document <span class="link-badge">View</span></a>
+            <a href="#" class="acc-link-btn"><span>&#127919;</span> Program Learning Outcomes</a>
+            <a href="#" class="acc-link-btn"><span>&#128203;</span> Assessment Framework</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /ug-panel -->
+
+    <!-- Masters Panel -->
+    <div class="tab-panel" id="ms-panel">
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span class="acc-icon">&#128197;</span>
+          <span class="acc-title">MS Timetable Fall 2026</span>
+          <span class="acc-chevron">&#9660;</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-desc">Current semester schedules for MS programs in Computer Science, Software Engineering, and Information Security.</p>
+          <div class="acc-links">
+            <a href="#" class="acc-link-btn primary-link"><span>&#128197;</span> MS Timetable Fall 2026 <span class="link-badge">View</span></a>
+            <a href="#" class="acc-link-btn"><span>&#128196;</span> Evening Program Schedule</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span class="acc-icon">&#128221;</span>
+          <span class="acc-title">MS Thesis &amp; Research Guidelines</span>
+          <span class="acc-chevron">&#9660;</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-desc">Thesis submission guidelines, research proposal formats, and supervisor allocation procedures.</p>
+          <div class="acc-links">
+            <a href="#" class="acc-link-btn primary-link"><span>&#128196;</span> Thesis Guidelines <span class="link-badge">Download</span></a>
+            <a href="#" class="acc-link-btn"><span>&#128203;</span> Research Proposal Format</a>
+            <a href="#" class="acc-link-btn"><span>&#128100;</span> Supervisor List</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span class="acc-icon">&#128200;</span>
+          <span class="acc-title">MS Course Offerings</span>
+          <span class="acc-chevron">&#9660;</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-desc">Available courses for MS students this semester including electives and core requirements.</p>
+          <div class="acc-links">
+            <a href="#" class="acc-link-btn primary-link"><span>&#128196;</span> Course Catalog <span class="link-badge">View</span></a>
+            <a href="#" class="acc-link-btn"><span>&#128203;</span> Electives List</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /ms-panel -->
+
+  </div>
+</section>
+
+<!-- ===== ANNOUNCEMENTS SECTION ===== -->
+<section class="announcements" id="announcements">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Stay Updated</span>
+      <h2>News &amp; Announcements</h2>
+      <p>Latest updates from the CSIT Department</p>
+    </div>
+
+    <div class="announce-layout">
+      <!-- Main announcements grid -->
+      <div class="announce-main">
+        <div class="ann-card">
+          <div class="ann-top">
+            <span class="ann-tag tag-academic">Academic</span>
+            <span class="ann-date">Nov 1, 2026</span>
+          </div>
+          <h3 class="ann-title">Fall 2026 Mid-Term Examinations Schedule Released</h3>
+          <p class="ann-desc">The examination schedule for mid-term exams has been officially published. Students are advised to check venue allocations carefully.</p>
+          <a href="#" class="ann-link">Read More &#8594;</a>
+        </div>
+
+        <div class="ann-card">
+          <div class="ann-top">
+            <span class="ann-tag tag-events">Events</span>
+            <span class="ann-date">Oct 28, 2026</span>
+          </div>
+          <h3 class="ann-title">ICONICS '26 &mdash; International Conference Registration Now Open</h3>
+          <p class="ann-desc">The International Conference on Information and Communication Systems (ICONICS '26) is now accepting paper submissions and registrations.</p>
+          <a href="#" class="ann-link">Read More &#8594;</a>
+        </div>
+
+        <div class="ann-card">
+          <div class="ann-top">
+            <span class="ann-tag tag-opp">Opportunities</span>
+            <span class="ann-date">Oct 25, 2026</span>
+          </div>
+          <h3 class="ann-title">Google Summer of Code 2027 &mdash; Preparation Workshop</h3>
+          <p class="ann-desc">CSIT is hosting a GSoC preparation workshop for interested students. Learn how to select projects, write proposals, and get selected.</p>
+          <a href="#" class="ann-link">Read More &#8594;</a>
+        </div>
+
+        <div class="ann-card">
+          <div class="ann-top">
+            <span class="ann-tag tag-research">Research</span>
+            <span class="ann-date">Oct 20, 2026</span>
+          </div>
+          <h3 class="ann-title">CSIT Research Day: Presenting 15 New Publications</h3>
+          <p class="ann-desc">Faculty members will present their latest research findings at the annual CSIT Research Day event. All students are encouraged to attend.</p>
+          <a href="#" class="ann-link">Read More &#8594;</a>
+        </div>
+
+        <div class="ann-card">
+          <div class="ann-top">
+            <span class="ann-tag tag-dept">Department</span>
+            <span class="ann-date">Oct 15, 2026</span>
+          </div>
+          <h3 class="ann-title">New AI &amp; Data Science Lab Inaugurated by Vice Chancellor</h3>
+          <p class="ann-desc">The state-of-the-art AI and Data Science laboratory has been officially inaugurated, equipped with 40 high-performance workstations.</p>
+          <a href="#" class="ann-link">Read More &#8594;</a>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="announce-sidebar">
+        <div class="sidebar-box">
+          <h4 class="sidebar-title">Filter by Category</h4>
+          <div class="filter-tags">
+            <button class="filter-tag active" onclick="filterAnn(this,'all')">All</button>
+            <button class="filter-tag" onclick="filterAnn(this,'academic')">Academic</button>
+            <button class="filter-tag" onclick="filterAnn(this,'events')">Events</button>
+            <button class="filter-tag" onclick="filterAnn(this,'opp')">Opportunities</button>
+            <button class="filter-tag" onclick="filterAnn(this,'research')">Research</button>
+            <button class="filter-tag" onclick="filterAnn(this,'dept')">Department</button>
+          </div>
+        </div>
+
+        <div class="sidebar-box">
+          <h4 class="sidebar-title">Upcoming Events</h4>
+          <ul class="event-list">
+            <li class="event-item">
+              <span class="event-date">Nov 10</span>
+              <span class="event-name">MS/PhD Admissions Test</span>
+            </li>
+            <li class="event-item">
+              <span class="event-date">Nov 15</span>
+              <span class="event-name">Admission Deadline &mdash; MS/PhD</span>
+            </li>
+            <li class="event-item">
+              <span class="event-date">Nov 22</span>
+              <span class="event-name">ICONICS '26 Conference</span>
+            </li>
+            <li class="event-item">
+              <span class="event-date">Dec 10</span>
+              <span class="event-name">Semester Final Exams Begin</span>
+            </li>
+            <li class="event-item">
+              <span class="event-date">Dec 20</span>
+              <span class="event-name">Winter Break Begins</span>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FACULTY FINDER ===== -->
+<section class="faculty-section" id="faculty">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Meet the Team</span>
+      <h2>Faculty Finder</h2>
+      <p>Search and connect with CSIT Department faculty members</p>
+    </div>
+
+    <div class="faculty-controls">
+      <div class="faculty-search-wrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="facultySearch" placeholder="Search by name or specialization..." oninput="filterFaculty()"/>
+      </div>
+      <div class="faculty-tags">
+        <button class="ftag active" data-filter="all" onclick="filterByTag(this)">All</button>
+        <button class="ftag" data-filter="ai" onclick="filterByTag(this)">AI &amp; ML</button>
+        <button class="ftag" data-filter="security" onclick="filterByTag(this)">Information Security</button>
+        <button class="ftag" data-filter="data" onclick="filterByTag(this)">Data Science</button>
+        <button class="ftag" data-filter="se" onclick="filterByTag(this)">Software Engineering</button>
+        <button class="ftag" data-filter="networks" onclick="filterByTag(this)">Networks</button>
+        <button class="ftag" data-filter="theory" onclick="filterByTag(this)">Theory of CS</button>
+      </div>
+    </div>
+
+    <div class="faculty-grid" id="facultyGrid">
+
+      <div class="faculty-card" data-tags="ai">
+        <div class="faculty-avatar">AA</div>
+        <div class="faculty-info">
+          <h3 class="faculty-name">Dr. Ahmad Ali</h3>
+          <p class="faculty-desig">Associate Professor</p>
+          <div class="faculty-tags-row">
+            <span class="ftag-badge">AI &amp; ML</span>
+            <span class="ftag-badge">Deep Learning</span>
+          </div>
+          <div class="faculty-actions">
+            <a href="mailto:ahmad.ali@neduet.edu.pk" class="fac-btn fac-email">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+            <a href="#" class="fac-btn fac-profile">View Profile</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="faculty-card" data-tags="security">
+        <div class="faculty-avatar">SK</div>
+        <div class="faculty-info">
+          <h3 class="faculty-name">Dr. Sara Khan</h3>
+          <p class="faculty-desig">Assistant Professor</p>
+          <div class="faculty-tags-row">
+            <span class="ftag-badge">Info Security</span>
+            <span class="ftag-badge">Cryptography</span>
+          </div>
+          <div class="faculty-actions">
+            <a href="mailto:sara.khan@neduet.edu.pk" class="fac-btn fac-email">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+            <a href="#" class="fac-btn fac-profile">View Profile</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="faculty-card" data-tags="data">
+        <div class="faculty-avatar">UT</div>
+        <div class="faculty-info">
+          <h3 class="faculty-name">Dr. Usman Tariq</h3>
+          <p class="faculty-desig">Associate Professor</p>
+          <div class="faculty-tags-row">
+            <span class="ftag-badge">Data Science</span>
+            <span class="ftag-badge">Big Data</span>
+          </div>
+          <div class="faculty-actions">
+            <a href="mailto:usman.tariq@neduet.edu.pk" class="fac-btn fac-email">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+            <a href="#" class="fac-btn fac-profile">View Profile</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="faculty-card" data-tags="se">
+        <div class="faculty-avatar">FN</div>
+        <div class="faculty-info">
+          <h3 class="faculty-name">Dr. Fatima Noor</h3>
+          <p class="faculty-desig">Assistant Professor</p>
+          <div class="faculty-tags-row">
+            <span class="ftag-badge">Software Eng.</span>
+            <span class="ftag-badge">Agile Methods</span>
+          </div>
+          <div class="faculty-actions">
+            <a href="mailto:fatima.noor@neduet.edu.pk" class="fac-btn fac-email">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+            <a href="#" class="fac-btn fac-profile">View Profile</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="faculty-card" data-tags="networks">
+        <div class="faculty-avatar">BR</div>
+        <div class="faculty-info">
+          <h3 class="faculty-name">Dr. Bilal Raza</h3>
+          <p class="faculty-desig">Professor</p>
+          <div class="faculty-tags-row">
+            <span class="ftag-badge">Networks</span>
+            <span class="ftag-badge">IoT</span>
+          </div>
+          <div class="faculty-actions">
+            <a href="mailto:bilal.raza@neduet.edu.pk" class="fac-btn fac-email">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+            <a href="#" class="fac-btn fac-profile">View Profile</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="faculty-card" data-tags="theory">
+        <div class="faculty-avatar">HM</div>
+        <div class="faculty-info">
+          <h3 class="faculty-name">Dr. Hina Mirza</h3>
+          <p class="faculty-desig">Assistant Professor</p>
+          <div class="faculty-tags-row">
+            <span class="ftag-badge">Theory of CS</span>
+            <span class="ftag-badge">Algorithms</span>
+          </div>
+          <div class="faculty-actions">
+            <a href="mailto:hina.mirza@neduet.edu.pk" class="fac-btn fac-email">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+            <a href="#" class="fac-btn fac-profile">View Profile</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHAIRMAN'S MESSAGE ===== -->
+<!--
+  HOW TO ADD CHAIRMAN'S PHOTO:
+  1. Copy his photo into  c:\Users\HP\app-dev\HCI\
+  2. Replace  chairman-photo.jpg  below with your actual filename
+-->
+<section class="chairman-section" id="chairmans-message">
+  <div class="container chairman-inner">
+
+    <div class="chairman-img-wrap">
+      <!-- Replace 'chairman-photo.jpg' with actual photo filename -->
+      <img
+        src="chairman-photo.jpg"
+        alt="Chairman, Department of CSIT"
+        class="chairman-photo"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <!-- Fallback placeholder shown if image not found -->
+      <div class="chairman-photo-placeholder" style="display:none;">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Add chairman-photo.jpg<br>to the HCI folder</span>
+      </div>
+      <div class="chairman-img-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        Chairman
+      </div>
+    </div>
+
+    <div class="chairman-content">
+      <span class="section-tag">Leadership</span>
+      <h2 class="chairman-heading">Chairman's Message</h2>
+      <div class="chairman-quote-mark">&#10077;</div>
+      <p class="chairman-text">
+        Welcome to the Department of Computer Science &amp; Information Technology at NED University of Engineering &amp; Technology. Our department has been at the forefront of producing highly skilled computing professionals who contribute meaningfully to industry, research, and society.
+      </p>
+      <p class="chairman-text">
+        We are committed to providing a rigorous, innovative, and student-centered academic environment. Through our BS, MS, and PhD programs, we equip our graduates with both technical excellence and the analytical mindset required to lead in an increasingly technology-driven world. I encourage every student to engage actively, explore research opportunities, and make the most of your time at CSIT.
+      </p>
+      <div class="chairman-sig">
+        <div class="chairman-sig-line"></div>
+        <div class="chairman-sig-name">Prof. Dr. Muhammad Mubashir Khan</div>
+        <div class="chairman-sig-title">Chairman, Department of CSIT &mdash; NEDUET</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <div class="footer-logo">
+        <div class="logo-badge logo-img-wrap">
+          <img
+            src="logo.png"
+            alt="CSIT Logo"
+            class="logo-img"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <span class="logo-fallback" style="display:none;">CSIT</span>
+        </div>
+        <div>
+          <div class="footer-brand">CSIT Student Hub</div>
+          <div class="footer-brand-sub">Department of CSIT, NEDUET</div>
+        </div>
+      </div>
+      <p class="footer-addr">NED University of Engineering &amp; Technology<br>University Road, Karachi 75270, Pakistan</p>
+      <p class="footer-contact">&#9993; csit@neduet.edu.pk</p>
+      <p class="footer-contact">&#128222; +92-21-99261261</p>
+      <div class="social-icons">
+        <a href="#" class="social-icon" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="Twitter">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-heading">Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#">Programs</a></li>
+        <li><a href="#faculty">Faculty</a></li>
+        <li><a href="#">Research</a></li>
+        <li><a href="#">Alumni</a></li>
+        <li><a href="#">Admissions</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-heading">Academic</h4>
+      <ul class="footer-links">
+        <li><a href="#" onclick="openTimetableModal()">Timetable</a></li>
+        <li><a href="#">Exam Schedule</a></li>
+        <li><a href="#">Academic Calendar</a></li>
+        <li><a href="#">OBE Framework</a></li>
+        <li><a href="#">Student Portal</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-heading">Resources</h4>
+      <ul class="footer-links">
+        <li><a href="#">Library</a></li>
+        <li><a href="#">Research Publications</a></li>
+        <li><a href="#">NEDUET Portal</a></li>
+        <li><a href="#">HEC Pakistan</a></li>
+        <li><a href="#">PEC Accreditation</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Department of Computer Science &amp; Information Technology, NED University. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- ===== TIMETABLE MODAL ===== -->
+<div class="modal-overlay" id="timetableModal" onclick="closeModalOutside(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <h2 class="modal-title">Fall 2026 Undergraduate Timetable</h2>
+        <p class="modal-subtitle">Department of CSIT &mdash; BS Programs (All Sections)</p>
+      </div>
+      <button class="modal-close" onclick="closeTimetableModal()">&#10005;</button>
+    </div>
+    <div class="modal-body">
+      <div class="tt-filter">
+        <label>Section:</label>
+        <select class="tt-select">
+          <option>All Sections</option>
+          <option>BS-CS Section A</option>
+          <option>BS-CS Section B</option>
+          <option>BS-SE Section A</option>
+          <option>BS-AI Section A</option>
+        </select>
+        <label>Semester:</label>
+        <select class="tt-select">
+          <option>All Semesters</option>
+          <option>Semester 1</option>
+          <option>Semester 3</option>
+          <option>Semester 5</option>
+          <option>Semester 7</option>
+        </select>
+      </div>
+      <div class="tt-scroll">
+        <table class="tt-table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tt-time">08:00 &ndash; 09:00</td>
+              <td class="tt-cell"><div class="tt-course">CS-301</div><div class="tt-detail">Data Structures</div><div class="tt-room">Room A-101</div></td>
+              <td class="tt-cell"><div class="tt-course">CS-302</div><div class="tt-detail">Algorithms Lab</div><div class="tt-room">Lab 3</div></td>
+              <td class="tt-cell tt-empty">&mdash;</td>
+              <td class="tt-cell"><div class="tt-course">SE-201</div><div class="tt-detail">Software Design</div><div class="tt-room">Room B-202</div></td>
+              <td class="tt-cell tt-empty">&mdash;</td>
+            </tr>
+            <tr>
+              <td class="tt-time">09:00 &ndash; 10:00</td>
+              <td class="tt-cell tt-empty">&mdash;</td>
+              <td class="tt-cell"><div class="tt-course">CS-401</div><div class="tt-detail">Database Systems</div><div class="tt-room">Room A-103</div></td>
+              <td class="tt-cell"><div class="tt-course">CS-301</div><div class="tt-detail">Data Structures</div><div class="tt-room">Room A-101</div></td>
+              <td class="tt-cell tt-empty">&mdash;</td>
+              <td class="tt-cell"><div class="tt-course">CS-405</div><div class="tt-detail">Computer Networks</div><div class="tt-room">Room C-301</div></td>
+            </tr>
+            <tr>
+              <td class="tt-time">10:00 &ndash; 11:00</td>
+              <td class="tt-cell"><div class="tt-course">CS-405</div><div class="tt-detail">Computer Networks</div><div class="tt-room">Room C-301</div></td>
+              <td class="tt-cell tt-empty">&mdash;</td>
+              <td class="tt-cell"><div class="tt-course">CS-401</div><div class="tt-detail">DB Systems Lab</div><div class="tt-room">Lab 1</div></td>
+              <td class="tt-cell"><div class="tt-course">CS-302</div><div class="tt-detail">Algorithms</div><div class="tt-room">Room A-102</div></td>
+              <td class="tt-cell tt-empty">&mdash;</td>
+            </tr>
+            <tr>
+              <td class="tt-time">11:00 &ndash; 12:00</td>
+              <td class="tt-cell"><div class="tt-course">AI-301</div><div class="tt-detail">Machine Learning</div><div class="tt-room">Room D-101</div></td>
+              <td class="tt-cell"><div class="tt-course">SE-301</div><div class="tt-detail">Project Mgmt</div><div class="tt-room">Room B-201</div></td>
+              <td class="tt-cell tt-empty">&mdash;</td>
+              <td class="tt-cell"><div class="tt-course">AI-302</div><div class="tt-detail">Deep Learning Lab</div><div class="tt-room">AI Lab</div></td>
+              <td class="tt-cell"><div class="tt-course">CS-410</div><div class="tt-detail">Operating Systems</div><div class="tt-room">Room A-104</div></td>
+            </tr>
+            <tr>
+              <td class="tt-time">12:00 &ndash; 13:00</td>
+              <td colspan="5" class="tt-break">Lunch Break / Jumu'ah Prayer</td>
+            </tr>
+            <tr>
+              <td class="tt-time">13:00 &ndash; 14:00</td>
+              <td class="tt-cell"><div class="tt-course">CY-301</div><div class="tt-detail">Network Security</div><div class="tt-room">Room E-101</div></td>
+              <td class="tt-cell tt-empty">&mdash;</td>
+              <td class="tt-cell"><div class="tt-course">SE-201</div><div class="tt-detail">Requirements Eng.</div><div class="tt-room">Room B-202</div></td>
+              <td class="tt-cell"><div class="tt-course">CS-410</div><div class="tt-detail">OS Lab</div><div class="tt-room">Lab 2</div></td>
+              <td class="tt-cell tt-empty">&mdash;</td>
+            </tr>
+            <tr>
+              <td class="tt-time">14:00 &ndash; 15:00</td>
+              <td class="tt-cell tt-empty">&mdash;</td>
+              <td class="tt-cell"><div class="tt-course">CY-302</div><div class="tt-detail">Ethical Hacking</div><div class="tt-room">Cyber Lab</div></td>
+              <td class="tt-cell"><div class="tt-course">AI-301</div><div class="tt-detail">ML Lab</div><div class="tt-room">AI Lab</div></td>
+              <td class="tt-cell tt-empty">&mdash;</td>
+              <td class="tt-cell"><div class="tt-course">SE-301</div><div class="tt-detail">Agile Methods</div><div class="tt-room">Room B-201</div></td>
+            </tr>
+            <tr>
+              <td class="tt-time">15:00 &ndash; 16:00</td>
+              <td class="tt-cell"><div class="tt-course">CS-420</div><div class="tt-detail">Software Testing</div><div class="tt-room">Room A-105</div></td>
+              <td class="tt-cell tt-empty">&mdash;</td>
+              <td class="tt-cell tt-empty">&mdash;</td>
+              <td class="tt-cell"><div class="tt-course">CY-301</div><div class="tt-detail">Sec Lab</div><div class="tt-room">Cyber Lab</div></td>
+              <td class="tt-cell tt-empty">&mdash;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer-note">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Timetable is subject to change. Check the student portal for the latest updates.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
